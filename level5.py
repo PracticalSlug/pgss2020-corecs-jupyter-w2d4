@@ -25,8 +25,9 @@ def hash_pw(pw_str):
 
 
 
-def level_5_pw_check():
-    user_pw = input("Please enter correct password for flag: ")
+def level_5_pw_check(pw):
+    #user_pw = input("Please enter correct password for flag: ")
+    user_pw = pw
     user_pw_hash = hash_pw(user_pw)
     
     if( user_pw_hash == bytearray(b"\x04-\xd9\x9e\xb0\xff\x86S\x81ND\\\xa0\t4'") ):
@@ -38,8 +39,13 @@ def level_5_pw_check():
 
 
 
-level_5_pw_check()
+#level_5_pw_check()
 
+pos_pwds = words_alpha_unix.read().split('\n')
+for i in pos_pwds:
+    user_pw = i
+    print(user_pw)
+    level_5_pw_check(user_pw)
 ### NOTE: You can make a new cell or put code below here to work with it.
 ### NOTE: You can comment out the `level_3_pw_check()` line viz. insert "#" at
 ###         beginning of line.
